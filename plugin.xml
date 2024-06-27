@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-isimplelab-nfc-plugin" version="0.1.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>NfcPlugin</name>
+    <description>cordova-isimplelab-nfc-plugin</description>
+
+    <js-module name="NfcPlugin" src="www/NfcPlugin.js">
+        <clobbers target="window.NfcPlugin" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NfcPlugin">
+                <param name="android-package" value="cordova.isimplelab.nfc.plugin.NfcPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.NFC" />
+            <uses-feature android:name="android.hardware.nfc" android:required="false" />
+        </config-file>
+
+        <source-file src="src/android/NfcPlugin.java" target-dir="src/cordova-isimplelab-nfc-plugin/" />
+
+        <lib-file src="src/android/nfc/libs/bit-lib4j-1.4.12.jar"/>
+        <lib-file src="src/android/nfc/libs/commons-collections4-4.0.jar"/>
+        <lib-file src="src/android/nfc/libs/commons-lang3-3.0.jar"/>
+
+        <source-file src="src/android/nfc/src/main/AndroidManifest.xml" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/CardNfcAsyncTask.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/CommandEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/EmvCardScheme.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/SwEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/TagTypeEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/TagValueTypeEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/enums/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/exception/CommunicationException.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/exception/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/exception/TlvException.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/exception/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/impl/TagImpl.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/impl/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/ByteArrayWrapper.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/EmvTags.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/EmvTerminal.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/ITag.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/TagAndLength.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/TerminalTransactionQualifiers.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/TLV.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/iso7816emv/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/CountryCodeEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/CurrencyEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/IKeyEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/ServiceCode1Enum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/ServiceCode2Enum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/ServiceCode3Enum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/TransactionTypeEnum.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/enums/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/AbstractData.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/Afl.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/EmvCard.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/EmvTransactionRecord.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/model/Service.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/model/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation/AnnotationData.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation/AnnotationUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation"/> />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation/Data.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/annotation/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/impl/AbstractByteBean.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/impl/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/impl/DataFactory.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/impl/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/IFile.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/apdu/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/EmvParser.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/IProvider.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/parser/" />
+
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/AtrUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/BytesUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/CardNfcUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/CommandApdu.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/EnumUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/Provider.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/ResponseUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/TlvUtil.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+        <source-file src="src/android/nfc/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/TrackUtils.java" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/java/com/pro100svitlo/creditCardNfcReader/utils/" />
+
+        <source-file src="src/android/nfc/src/main/res/values/strings.xml" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/res/values/" />
+        <source-file src="src/android/nfc/src/main/res/xml/nfc_tech_filter.xml" target-dir="src/cordova-isimplelab-nfc-plugin/reader/src/main/res/xml/" />
+
+        <framework custom="true" src="src/android/build-extras.gradle" type="gradleReference" />
+
+    </platform>
+
+</plugin>
